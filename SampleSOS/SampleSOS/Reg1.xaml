@@ -1,0 +1,140 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions" 
+    x:Class="SampleSOS.Page1"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+                            Loaded="PhoneApplicationPage_Loaded">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="Registration" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="24,-8,0,8">
+        	<Grid.RowDefinitions>
+        		<RowDefinition Height="0.367*"/>
+        		<RowDefinition Height="0.633*"/>
+        	</Grid.RowDefinitions>
+        	<TextBox Margin="161,6,32,0" TextWrapping="Wrap" VerticalAlignment="Top"
+                     Height="60"
+                     Name="tname"
+                     FontSize="18" />
+            <TextBox FontSize="18"
+                     Height="60"
+                     Margin="161,60,32,0"
+                     Name="tmobile"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top" />
+            <TextBox FontSize="18"
+                     Height="60"
+                     Margin="161,116,32,0"
+                     Name="tcity"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top" />
+            <TextBox FontSize="18"
+                     Height="60"
+                     Margin="161,172,32,0"
+                     Name="temail"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Grid.RowSpan="2" />
+            <TextBox FontSize="18"
+                     Height="60"
+                     Margin="161,228,32,0"
+                     Name="tpassword"
+                     InputScope="password"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Grid.RowSpan="2" />
+            <TextBox FontSize="18"
+                     Height="60"
+                     Margin="161,56,32,0"
+                     Name="tbloodgroup"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Grid.Row="1" />
+            <TextBox FontSize="18"
+                     Height="60"
+                     Margin="161,112,32,0"
+                     Name="tavailability"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Grid.Row="1" />
+            <TextBox FontSize="18"
+                     Height="60"
+                     Margin="162,169,31,0"
+                     Name="tpin"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top"
+                     Grid.Row="1" />
+            <TextBlock Margin="8,21,204,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="72"/>
+        	<TextBlock Margin="8,72,204,82" TextWrapping="Wrap" Text="Mobile"/>
+        	<TextBlock Margin="8,0,154,39" TextWrapping="Wrap" Text="City" VerticalAlignment="Bottom" Height="58" />
+        	<TextBlock Margin="6,182,206,0"
+                       TextWrapping="Wrap" Text="e mail" VerticalAlignment="Top" Height="70"
+                       Grid.RowSpan="2" />
+        	<TextBlock Margin="0,15,212,0"
+                       TextWrapping="Wrap" Text="password" VerticalAlignment="Top" RenderTransformOrigin="-0.774,0.648" Height="59"
+                       Grid.Row="1" />
+        	<TextBlock Margin="0,71,212,241" Grid.Row="1" TextWrapping="Wrap" Text="blood group"/>
+        	<TextBlock Margin="0,0,212,195" Grid.Row="1" TextWrapping="Wrap" Text="availability" VerticalAlignment="Bottom" Height="67"/>
+        	<Button Content="Register" Margin="26,0,268,6" Grid.Row="1" VerticalAlignment="Bottom" d:LayoutOverrides="Width"
+                    Click="Button_Click"/>
+            <TextBlock Grid.Row="1"
+                       Height="30"
+                       HorizontalAlignment="Left"
+                       Margin="0,178,0,0"
+                       Name="textBlock1"
+                       Text="pin"
+                       VerticalAlignment="Top"
+                       Width="162" />
+            <Button Content="Home"
+                    Grid.Row="1"
+                    Height="72"
+                    HorizontalAlignment="Left"
+                    Margin="246,306,0,0"
+                    Name="button1"
+                    VerticalAlignment="Top"
+                    Width="160" >
+            	<i:Interaction.Triggers>
+            		<i:EventTrigger EventName="Click">
+            			<ec:NavigateToPageAction TargetPage="/MainPage.xaml"/>
+            		</i:EventTrigger>
+            	</i:Interaction.Triggers>
+            </Button>
+            
+        </Grid>
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>
